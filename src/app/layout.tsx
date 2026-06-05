@@ -58,6 +58,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="canonical" href="https://himtatwa.com" />
+        <meta name="geo.region" content="IN-UP" />
+        <meta name="geo.placename" content="Hathras, Uttar Pradesh, India" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -66,10 +69,95 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'Organization',
               name: 'Himtatwa',
               url: 'https://himtatwa.com',
-              logo: 'https://himtatwa.com/logo.png',
-              description: 'Premium Himalayan Shilajit in liquid dropper form.',
-              sameAs: [],
+              logo: 'https://himtatwa.com/images/logo_himtatwa.jpg',
+              description: 'Premium Himalayan Shilajit in liquid dropper form. Lab-tested, FSSAI certified, zero additives.',
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+91-9045577509',
+                contactType: 'customer service',
+                availableLanguage: ['Hindi', 'English'],
+              },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Hathras',
+                addressRegion: 'Uttar Pradesh',
+                addressCountry: 'IN',
+              },
+              sameAs: [
+                'https://www.instagram.com/himtatwa',
+              ],
             }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Himtatwa',
+              url: 'https://himtatwa.com',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://himtatwa.com/products?q={search_term_string}',
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Product',
+                name: 'Himtatwa Liquid Shilajit — 30ml',
+                image: 'https://himtatwa.com/images/product.jpg',
+                description: 'Pure Himalayan Shilajit in liquid dropper form. Sourced from 16,000+ feet. Lab-tested, FSSAI certified, zero additives.',
+                brand: { '@type': 'Brand', name: 'Himtatwa' },
+                sku: 'HT-30ML',
+                offers: {
+                  '@type': 'Offer',
+                  url: 'https://himtatwa.com/products/himtatwa-liquid-shilajit-30ml',
+                  priceCurrency: 'INR',
+                  price: '1199',
+                  priceValidUntil: '2027-12-31',
+                  availability: 'https://schema.org/InStock',
+                  seller: { '@type': 'Organization', name: 'Himtatwa' },
+                },
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: '4.7',
+                  reviewCount: '1600',
+                  bestRating: '5',
+                },
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Product',
+                name: 'Himtatwa Liquid Shilajit — 50ml',
+                image: 'https://himtatwa.com/images/product.jpg',
+                description: 'Best-value pure Himalayan Shilajit in liquid dropper form. 3-4 month supply. Lab-tested, FSSAI certified.',
+                brand: { '@type': 'Brand', name: 'Himtatwa' },
+                sku: 'HT-50ML',
+                offers: {
+                  '@type': 'Offer',
+                  url: 'https://himtatwa.com/products/himtatwa-liquid-shilajit-50ml',
+                  priceCurrency: 'INR',
+                  price: '1799',
+                  priceValidUntil: '2027-12-31',
+                  availability: 'https://schema.org/InStock',
+                  seller: { '@type': 'Organization', name: 'Himtatwa' },
+                },
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: '4.5',
+                  reviewCount: '1100',
+                  bestRating: '5',
+                },
+              },
+            ]),
           }}
         />
       </head>
