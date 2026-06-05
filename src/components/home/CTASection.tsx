@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Truck, RotateCcw, HeadphonesIcon } from 'lucide-react';
+import { ArrowRight, Truck, ShieldCheck, HeadphonesIcon } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
 
@@ -13,7 +13,7 @@ export default function CTASection() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
           {[
             { icon: Truck, title: 'Free Shipping', desc: 'On all orders above ₹999' },
-            { icon: RotateCcw, title: '30-Day Returns', desc: 'Satisfaction guaranteed' },
+            { icon: ShieldCheck, title: 'Quality Guaranteed', desc: '100% pure, lab-certified batch' },
             { icon: HeadphonesIcon, title: '24/7 Support', desc: 'WhatsApp & Email' },
           ].map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.1}>

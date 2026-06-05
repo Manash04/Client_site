@@ -509,7 +509,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={13} className="text-gold-400 fill-gold-400" />
               ))}
-              <span className="text-neutral-400 text-xs ml-2">4.9/5 • 2,300+ reviews</span>
+              <span className="text-neutral-400 text-xs ml-2">4.7/5 • 1,600+ reviews</span>
             </div>
             <p className="text-neutral-400 text-sm">Lab-tested • FSSAI Certified • Zero additives</p>
           </div>

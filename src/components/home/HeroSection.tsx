@@ -34,6 +34,9 @@ export default function HeroSection() {
                 <br />
                 Shilajit
               </h1>
+              <p className="text-gold-400/80 text-base sm:text-lg font-medium mt-3 tracking-wide">
+                Super easy to use
+              </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
@@ -116,7 +119,7 @@ export default function HeroSection() {
               >
                 <div className="flex items-center gap-2">
                   <Star size={12} className="text-gold-400 fill-gold-400" />
-                  <span className="text-white text-xs font-medium">4.9/5 Rating</span>
+                  <span className="text-white text-xs font-medium">4.7/5 Rating</span>
                 </div>
               </motion.div>
             </div>

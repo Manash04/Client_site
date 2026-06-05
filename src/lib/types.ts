@@ -15,6 +15,8 @@ export interface Product {
   ingredients: string;
   usage: string;
   certifications: string[];
+  rating: number;
+  review_count: string;
   in_stock: boolean;
   created_at: string;
 }

@@ -84,9 +84,13 @@ export default function ProductsSection() {
                   {/* Rating */}
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} size={14} className="text-gold-400 fill-gold-400" />
+                      <Star
+                        key={j}
+                        size={14}
+                        className={j < Math.floor(product.rating) ? 'text-gold-400 fill-gold-400' : 'text-gold-400/30'}
+                      />
                     ))}
-                    <span className="text-neutral-400 text-sm ml-2">4.9 (2.3k reviews)</span>
+                    <span className="text-neutral-400 text-sm ml-2">{product.rating} ({product.review_count} reviews)</span>
                   </div>
 
                   {/* CTA */}

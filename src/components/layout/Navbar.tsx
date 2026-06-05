@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, User, Menu, X, LogOut } from 'lucide-react';
+import Image from 'next/image';
 import { useCartStore } from '@/store/cart';
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
@@ -63,8 +64,8 @@ export default function Navbar() {
         <div className="container-tight flex items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-              <span className="text-black font-display font-bold text-sm">HT</span>
+            <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
+              <Image src="/images/logo_himtatwa.jpg" alt="Himtatwa" width={36} height={36} className="object-cover w-full h-full" />
             </div>
             <span className="font-display text-xl font-bold tracking-tight text-white group-hover:text-gold-400 transition-colors">
               Himtatwa

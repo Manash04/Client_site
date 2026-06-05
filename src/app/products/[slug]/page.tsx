@@ -67,10 +67,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={16} className="text-gold-400 fill-gold-400" />
+                    <Star
+                      key={i}
+                      size={16}
+                      className={i < Math.floor(product.rating) ? 'text-gold-400 fill-gold-400' : 'text-gold-400/30'}
+                    />
                   ))}
                 </div>
-                <span className="text-neutral-400 text-sm">4.9 (2,300+ reviews)</span>
+                <span className="text-neutral-400 text-sm">{product.rating} ({product.review_count} reviews)</span>
               </div>
 
               {/* Price */}

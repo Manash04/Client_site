@@ -4,7 +4,7 @@ import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function WhatsAppWidget() {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919999999999';
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919045577509';
   const message = encodeURIComponent('Hi! I have a question about Himtatwa Shilajit.');
 
   return (
