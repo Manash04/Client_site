@@ -28,12 +28,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Check minimum order
-    if (subtotal < coupon.min_order_value) {
-      return NextResponse.json({
-        valid: false,
-        message: `Minimum order of ₹${coupon.min_order_value} required`,
-      });
-    }
+    // if (subtotal < coupon.min_order_value) {
+    //   return NextResponse.json({
+    //     valid: false,
+    //     message: `Minimum order of ₹${coupon.min_order_value} required`,
+    //   });
+    // }
 
     // Calculate discount
     let discount = 0;
