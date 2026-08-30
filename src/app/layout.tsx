@@ -121,7 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'Offer',
                   url: 'https://himtatwa.com/products/himtatwa-liquid-shilajit-30ml',
                   priceCurrency: 'INR',
-                  price: '1199',
+                  price: '2',
                   priceValidUntil: '2027-12-31',
                   availability: 'https://schema.org/InStock',
                   seller: { '@type': 'Organization', name: 'Himtatwa' },
