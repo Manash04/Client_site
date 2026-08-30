@@ -34,12 +34,19 @@ export async function POST(request: NextRequest) {
 
     if (error) throw error;
 
-    // Send confirmation emails (fire and forget)
-    fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/email/order-confirmation`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ order_id }),
-    }).catch(console.error);
+    // Send confirmation emails
+    const baseUrl = 'https://himtatwa.com';
+    try {
+      const emailRes = await fetch(`${baseUrl}/api/email/order-confirmation`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ order_id: order.id }),
+      });
+      const emailData = await emailRes.json();
+      console.log('Email result:', emailData);
+    } catch (emailErr) {
+      console.error('Email send failed:', emailErr);
+    }
 
     return NextResponse.json({ success: true, order });
   } catch (error: any) {
