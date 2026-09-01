@@ -88,7 +88,7 @@ export default function HeroSection() {
               >
                 <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl shadow-gold-500/10 border border-neutral-700/30">
                   <Image
-                    src="/images/product_img3.png"
+                    src="/images/Product_img_redesigned.png"
                     alt="Himtatwa Liquid Shilajit"
                     fill
                     className="object-cover object-center"

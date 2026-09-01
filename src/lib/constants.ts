@@ -14,9 +14,9 @@ export const PRODUCTS: Product[] = [
     size: "30ml",
     supply_duration: "2–3 months",
     tag: "Most Popular",
-    image_url: "/images/product_img3.png",
+    image_url: "/images/Product_img_redesigned.png",
     images: [
-      "/images/product_img3.png",
+      "/images/Product_img_redesigned.png",
       "/images/product2.jpg",
       "/images/product3.jpg",
     ],
@@ -55,9 +55,9 @@ export const PRODUCTS: Product[] = [
     size: "50ml",
     supply_duration: "3–4 months",
     tag: "Best Value",
-    image_url: "/images/product_img3.png",
+    image_url: "/images/Product_img_redesigned.png",
     images: [
-      "/images/product_img3.png",
+      "/images/Product_img_redesigned.png",
       "/images/product2.jpg",
       "/images/product3.jpg",
     ],
