@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'Organization',
               name: 'Himtatwa',
               url: 'https://himtatwa.com',
-              logo: 'https://himtatwa.com/images/logo_himtatwa.jpg',
+              logo: 'https://himtatwa.com/images/himtatwa_logo_redesigned.png',
               description: 'Premium Himalayan Shilajit in liquid dropper form. Lab-tested, FSSAI certified, zero additives.',
               contactPoint: {
                 '@type': 'ContactPoint',

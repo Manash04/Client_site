@@ -65,7 +65,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-              <Image src="/images/logo_himtatwa.jpg" alt="Himtatwa" width={36} height={36} className="object-cover w-full h-full" />
+              <Image src="/images/himtatwa_logo_redesigned.png" alt="Himtatwa" width={36} height={36} className="object-cover w-full h-full" />
             </div>
             <span className="font-display text-xl font-bold tracking-tight text-white group-hover:text-gold-400 transition-colors">
               Himtatwa
