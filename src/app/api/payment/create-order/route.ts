@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         items,
         subtotal: amount + discount,
         discount,
-        shipping: amount >= 999 ? 0 : 99,
+        shipping: 0,
         total: amount,
         status: 'pending',
         payment_status: 'pending',

@@ -50,7 +50,7 @@ export default function ProductsSection() {
                 {/* Product Image Area */}
                 <div className="relative h-72 bg-neutral-900 overflow-hidden">
                   <Image
-                    src="/images/product.jpg"
+                    src="/images/product_img3.png"
                     alt={product.name}
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"

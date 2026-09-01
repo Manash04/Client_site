@@ -12,7 +12,7 @@ export default function CTASection() {
         {/* Trust Badges */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
           {[
-            { icon: Truck, title: 'Free Shipping', desc: 'On all orders above ₹999' },
+            { icon: Truck, title: 'Free Shipping', desc: 'For all orders' },
             { icon: ShieldCheck, title: 'Quality Guaranteed', desc: '100% pure, lab-certified batch' },
             { icon: HeadphonesIcon, title: '24/7 Support', desc: 'WhatsApp & Email' },
           ].map((item, i) => (

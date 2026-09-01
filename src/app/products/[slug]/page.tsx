@@ -44,7 +44,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </span>
               </div>
               <Image
-                src="/images/product.jpg"
+                src="/images/product_img3.png"
                 alt={product.name}
                 fill
                 className="object-cover object-center"
