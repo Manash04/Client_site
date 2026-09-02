@@ -56,7 +56,7 @@ export default function Navbar() {
   return (
     <>
       <header
-      style={{ top: '36px' }}
+        style={{ top: "36px" }}
         className={cn(
           "fixed left-0 right-0 z-50 transition-all duration-500",
           scrolled

@@ -9,7 +9,7 @@ export const PRODUCTS: Product[] = [
       "Experience the purest form of Himalayan Shilajit, carefully sourced from altitudes above 16,000 feet. Our 30ml liquid dropper bottle provides a 2–3 month supply of this ancient Ayurvedic superfood, packed with 85+ minerals and fulvic acid for maximum absorption and bioavailability.",
     short_description:
       "Premium liquid Shilajit — 2-3 month supply for daily vitality",
-    price: 1299,
+    price: 1499,
     mrp: 1599,
     size: "30ml",
     supply_duration: "2–3 months",
