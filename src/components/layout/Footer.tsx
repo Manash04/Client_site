@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-                <Image src="/images/himtatwa_logo_redesigned.png" alt="Himtatwa" width={36} height={36} className="object-cover w-full h-full" />
+                <Image src="/images/himtatwa_logo_redesigned1.png" alt="Himtatwa" width={36} height={36} className="object-cover w-full h-full" />
               </div>
               <span className="font-display text-xl font-bold text-white">Himtatwa</span>
             </Link>

@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import CartDrawer from "@/components/cart/CartDrawer";
+import AnnouncementBar from '@/components/layout/AnnouncementBar';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -104,7 +105,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Himtatwa",
               url: "https://himtatwa.com",
-              logo: "https://himtatwa.com/images/himtatwa_logo_redesigned.png",
+              logo: "https://himtatwa.com/images/himtatwa_logo_redesigned1.png",
               description:
                 "Premium Himalayan Shilajit in liquid dropper form. Lab-tested, FSSAI certified, zero additives.",
               contactPoint: {
@@ -198,6 +199,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        <AnnouncementBar/>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

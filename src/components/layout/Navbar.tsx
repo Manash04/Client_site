@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, User, Menu, X, LogOut } from 'lucide-react';
-import Image from 'next/image';
-import { useCartStore } from '@/store/cart';
-import { NAV_LINKS } from '@/lib/constants';
-import { cn } from '@/lib/utils';
-import { createBrowserClient } from '@supabase/ssr';
-import { toast } from 'sonner';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingBag, User, Menu, X, LogOut } from "lucide-react";
+import Image from "next/image";
+import { useCartStore } from "@/store/cart";
+import { NAV_LINKS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+import { createBrowserClient } from "@supabase/ssr";
+import { toast } from "sonner";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +23,7 @@ export default function Navbar() {
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 
   useEffect(() => {
@@ -31,7 +31,9 @@ export default function Navbar() {
     // Get current session
     supabase.auth.getUser().then(({ data }) => setUser(data.user));
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
     return () => subscription.unsubscribe();
@@ -39,33 +41,40 @@ export default function Navbar() {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
     setMobileOpen(false);
-    toast.success('Logged out successfully');
-    router.push('/');
+    toast.success("Logged out successfully");
+    router.push("/");
   };
 
   return (
     <>
       <header
+      style={{ top: '36px' }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          "fixed left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? 'bg-black/80 backdrop-blur-xl border-b border-white/5 py-3'
-            : 'bg-transparent py-5'
+            ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-3"
+            : "bg-transparent py-5",
         )}
       >
         <div className="container-tight flex items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-              <Image src="/images/himtatwa_logo_redesigned.png" alt="Himtatwa" width={36} height={36} className="object-cover w-full h-full" />
+            <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <Image
+                src="/images/himtatwa_logo_redesigned1.png"
+                alt="Himtatwa"
+                width={48}
+                height={48}
+                className="object-cover w-full h-full"
+              />
             </div>
             <span className="font-display text-xl font-bold tracking-tight text-white group-hover:text-gold-400 transition-colors">
               Himtatwa
@@ -109,7 +118,10 @@ export default function Navbar() {
               onClick={openCart}
               className="relative p-2.5 rounded-full hover:bg-white/5 transition-all group"
             >
-              <ShoppingBag size={20} className="text-neutral-300 group-hover:text-white transition-colors" />
+              <ShoppingBag
+                size={20}
+                className="text-neutral-300 group-hover:text-white transition-colors"
+              />
               {mounted && itemCount > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
@@ -143,15 +155,20 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="fixed right-0 top-0 bottom-0 z-50 w-[300px] bg-neutral-950 border-l border-neutral-800 p-6"
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="font-display text-lg font-bold text-white">Menu</span>
-                <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg hover:bg-white/5">
+                <span className="font-display text-lg font-bold text-white">
+                  Menu
+                </span>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="p-2 rounded-lg hover:bg-white/5"
+                >
                   <X size={20} className="text-neutral-400" />
                 </button>
               </div>
@@ -191,4 +208,3 @@ export default function Navbar() {
     </>
   );
 }
-

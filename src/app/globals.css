@@ -30,6 +30,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+main {
+  padding-top: 0;
+}
 
 html {
   scroll-behavior: smooth;
@@ -144,6 +147,48 @@ body {
            focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/20 
            transition-all duration-200;
   }
+}
+
+/* ─── Announcement Bar ─── */
+.announcement-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 36px;
+  background: linear-gradient(90deg, #1a0a00, #2d1500, #1a0a00);
+  border-bottom: 1px solid rgba(212,160,23,0.3);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.announcement-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.announcement-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 40px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #d4a017;
+}
+
+.announcement-dot {
+  margin: 0 20px;
+  color: rgba(212,160,23,0.4);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ─── Hero gradient overlay ─── */
