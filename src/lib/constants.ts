@@ -10,7 +10,7 @@ export const PRODUCTS: Product[] = [
     short_description:
       "Premium liquid Shilajit — 2-3 month supply for daily vitality",
     price: 1499,
-    mrp: 1599,
+    mrp: 1799,
     size: "30ml",
     supply_duration: "2–3 months",
     tag: "Most Popular",
@@ -50,8 +50,8 @@ export const PRODUCTS: Product[] = [
       "Our biggest and best-value bottle — 50ml of pure Himalayan Shilajit for those committed to their wellness journey. Sourced from above 16,000 feet, this generous supply lasts 3–4 months and delivers the same potent fulvic acid and 85+ minerals in every drop.",
     short_description:
       "Best-value liquid Shilajit — 3-4 month supply for serious wellness",
-    price: 1799,
-    mrp: 2299,
+    price: 2499,
+    mrp: 2990,
     size: "50ml",
     supply_duration: "3–4 months",
     tag: "Best Value",

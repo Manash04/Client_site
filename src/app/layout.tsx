@@ -182,7 +182,7 @@ export default function RootLayout({
                   "@type": "Offer",
                   url: "https://himtatwa.com/products/himtatwa-liquid-shilajit-50ml",
                   priceCurrency: "INR",
-                  price: "1799",
+                  price: "2499",
                   priceValidUntil: "2027-12-31",
                   availability: "https://schema.org/InStock",
                   seller: { "@type": "Organization", name: "Himtatwa" },
