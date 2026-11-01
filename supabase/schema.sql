@@ -131,7 +131,8 @@ create policy "Anyone can read active coupons" on public.coupons
 -- Sample coupon
 insert into public.coupons (code, discount_type, discount_value, min_order_value, max_discount, usage_limit, expires_at) values
   ('WELCOME10', 'percentage', 10, 500, 200, 1000, '2027-12-31'::timestamptz),
-  ('FLAT100', 'fixed', 100, 799, null, 500, '2027-12-31'::timestamptz);
+  ('FLAT100', 'fixed', 100, 799, null, 500, '2027-12-31'::timestamptz),
+  ('ANURAG30', 'percentage', 30, 0, null, 1000, '2027-12-31'::timestamptz);
 
 -- ═══════════════════════════════════════════
 -- ADDRESSES

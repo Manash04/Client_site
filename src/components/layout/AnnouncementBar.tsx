@@ -2,13 +2,9 @@
 
 const messages = [
   '🚚 FREE DELIVERY ON ALL ORDERS',
-  '🎉 USE CODE LAUNCH30 FOR 30% OFF',
-  '🔥 USE CODE AAMAN30 FOR 30% OFF',
   '🏔️ SOURCED FROM 16,000+ FEET ALTITUDE',
   '✅ LAB TESTED • FSSAI CERTIFIED • 100% PURE',
   '🚚 FREE DELIVERY ON ALL ORDERS',
-  '🎉 USE CODE LAUNCH30 FOR 30% OFF',
-  '🔥 USE CODE AAMAN30 FOR 30% OFF',
   '🏔️ SOURCED FROM 16,000+ FEET ALTITUDE',
   '✅ LAB TESTED • FSSAI CERTIFIED • 100% PURE',
 ];
@@ -20,7 +16,7 @@ export default function AnnouncementBar() {
         {messages.map((msg, i) => (
           <span key={i} className="announcement-item">
             {msg}
-            <span className="announcement-dot">◆</span>
+            <span className="announcement-dot"></span>
           </span>
         ))}
       </div>

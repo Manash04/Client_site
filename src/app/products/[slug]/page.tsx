@@ -80,10 +80,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               {/* Price */}
               <div className="flex items-baseline gap-4">
                 <span className="text-3xl font-bold text-white">{formatPrice(product.price)}</span>
-                <span className="text-neutral-500 line-through text-lg">{formatPrice(product.mrp)}</span>
-                <span className="px-2 py-0.5 rounded bg-green-500/10 text-green-400 text-sm font-medium">
-                  {calculateDiscount(product.price, product.mrp)}% off
-                </span>
+                {product.mrp > product.price && (
+                  <>
+                    <span className="text-neutral-500 line-through text-lg">{formatPrice(product.mrp)}</span>
+                    <span className="px-2 py-0.5 rounded bg-green-500/10 text-green-400 text-sm font-medium">
+                      {calculateDiscount(product.price, product.mrp)}% off
+                    </span>
+                  </>
+                )}
               </div>
 
               {/* Benefits */}
