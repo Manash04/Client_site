@@ -75,10 +75,14 @@ export default function ProductsSection() {
                   {/* Price */}
                   <div className="flex items-baseline gap-3">
                     <span className="text-white text-2xl font-bold">{formatPrice(product.price)}</span>
-                    <span className="text-neutral-500 line-through text-sm">{formatPrice(product.mrp)}</span>
-                    <span className="text-green-400 text-sm font-medium">
-                      {calculateDiscount(product.price, product.mrp)}% off
-                    </span>
+                    {product.mrp > product.price && (
+                      <>
+                        <span className="text-neutral-500 line-through text-sm">{formatPrice(product.mrp)}</span>
+                        <span className="text-green-400 text-sm font-medium">
+                          {calculateDiscount(product.price, product.mrp)}% off
+                        </span>
+                      </>
+                    )}
                   </div>
 
                   {/* Rating */}
