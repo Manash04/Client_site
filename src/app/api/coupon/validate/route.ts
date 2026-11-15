@@ -31,6 +31,66 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ valid: false, message: 'Coupon usage limit reached' });
     }
 
+    // ── YATEESH0030: 30% off — only valid for 30ml product ──
+    if (coupon.code === 'YATEESH0030') {
+      const has30ml = items?.some((item: any) =>
+        item.slug === 'himtatwa-liquid-shilajit-30ml' ||
+        item.name?.includes('30ml')
+      );
+      if (!has30ml) {
+        return NextResponse.json({
+          valid: false,
+          message: 'This coupon is only valid for the 30ml Shilajit bottle',
+        });
+      }
+
+      // Calculate discount only on 30ml item(s), not entire cart
+      const item30ml = items?.filter((item: any) =>
+        item.slug === 'himtatwa-liquid-shilajit-30ml' ||
+        item.name?.includes('30ml')
+      );
+      const eligible30mlTotal = item30ml?.reduce(
+        (sum: number, item: any) => sum + item.price * item.quantity,
+        0
+      ) ?? 0;
+      const discount30ml = Math.round((eligible30mlTotal * coupon.discount_value) / 100);
+      return NextResponse.json({
+        valid: true,
+        discount: discount30ml,
+        message: `${coupon.discount_value}% discount applied on 30ml Shilajit!`,
+      });
+    }
+
+    // ── NITIN19: 19% off — only valid for 50ml product ──
+    if (coupon.code === 'NITIN19') {
+      const has50ml = items?.some((item: any) =>
+        item.slug === 'himtatwa-liquid-shilajit-50ml' ||
+        item.name?.includes('50ml')
+      );
+      if (!has50ml) {
+        return NextResponse.json({
+          valid: false,
+          message: 'This coupon is only valid for the 50ml Shilajit bottle',
+        });
+      }
+
+      // Calculate discount only on 50ml item(s), not entire cart
+      const item50ml = items?.filter((item: any) =>
+        item.slug === 'himtatwa-liquid-shilajit-50ml' ||
+        item.name?.includes('50ml')
+      );
+      const eligible50mlTotal = item50ml?.reduce(
+        (sum: number, item: any) => sum + item.price * item.quantity,
+        0
+      ) ?? 0;
+      const discount50ml = Math.round((eligible50mlTotal * coupon.discount_value) / 100);
+      return NextResponse.json({
+        valid: true,
+        discount: discount50ml,
+        message: `${coupon.discount_value}% discount applied on 50ml Shilajit!`,
+      });
+    }
+
     // ── WELCOME2 special rules ──
     if (coupon.code === 'WELCOME2') {
       // Must be logged in
