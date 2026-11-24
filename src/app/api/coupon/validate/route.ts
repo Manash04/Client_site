@@ -31,8 +31,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ valid: false, message: 'Coupon usage limit reached' });
     }
 
-    // ── YATEESH0030: 30% off — only valid for 30ml product ──
-    if (coupon.code === 'YATEESH0030') {
+    // ── 30ml-only coupons: YATEESH0005, NITIN19, ROHIT25, TRIPTI25, SOMRAAJ27 ──
+    const COUPONS_30ML_ONLY = ['YATEESH0005', 'nitin19', 'ROHIT25', 'TRIPTI25', 'SOMRAAJ27', 'NITIN19'];
+    if (COUPONS_30ML_ONLY.includes(coupon.code)) {
       const has30ml = items?.some((item: any) =>
         item.slug === 'himtatwa-liquid-shilajit-30ml' ||
         item.name?.includes('30ml')
@@ -44,12 +45,12 @@ export async function POST(request: NextRequest) {
         });
       }
 
-      // Calculate discount only on 30ml item(s), not entire cart
-      const item30ml = items?.filter((item: any) =>
+      // Discount only on 30ml item(s), not entire cart
+      const items30ml = items?.filter((item: any) =>
         item.slug === 'himtatwa-liquid-shilajit-30ml' ||
         item.name?.includes('30ml')
       );
-      const eligible30mlTotal = item30ml?.reduce(
+      const eligible30mlTotal = items30ml?.reduce(
         (sum: number, item: any) => sum + item.price * item.quantity,
         0
       ) ?? 0;
@@ -58,36 +59,6 @@ export async function POST(request: NextRequest) {
         valid: true,
         discount: discount30ml,
         message: `${coupon.discount_value}% discount applied on 30ml Shilajit!`,
-      });
-    }
-
-    // ── NITIN19: 19% off — only valid for 50ml product ──
-    if (coupon.code === 'NITIN19') {
-      const has50ml = items?.some((item: any) =>
-        item.slug === 'himtatwa-liquid-shilajit-50ml' ||
-        item.name?.includes('50ml')
-      );
-      if (!has50ml) {
-        return NextResponse.json({
-          valid: false,
-          message: 'This coupon is only valid for the 50ml Shilajit bottle',
-        });
-      }
-
-      // Calculate discount only on 50ml item(s), not entire cart
-      const item50ml = items?.filter((item: any) =>
-        item.slug === 'himtatwa-liquid-shilajit-50ml' ||
-        item.name?.includes('50ml')
-      );
-      const eligible50mlTotal = item50ml?.reduce(
-        (sum: number, item: any) => sum + item.price * item.quantity,
-        0
-      ) ?? 0;
-      const discount50ml = Math.round((eligible50mlTotal * coupon.discount_value) / 100);
-      return NextResponse.json({
-        valid: true,
-        discount: discount50ml,
-        message: `${coupon.discount_value}% discount applied on 50ml Shilajit!`,
       });
     }
 
