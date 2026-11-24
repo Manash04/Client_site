@@ -31,8 +31,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ valid: false, message: 'Coupon usage limit reached' });
     }
 
-    // ── YATEESH0005: 25% off — only valid for 30ml product ──
-    if (coupon.code === 'YATEESH0005') {
+    // ── 30ml-only coupons: YATEESH0005, NITIN19, ROHIT25, TRIPTI25, SOMRAAJ27 ──
+    const COUPONS_30ML_ONLY = ['YATEESH0005', 'nitin19', 'ROHIT25', 'TRIPTI25', 'SOMRAAJ27', 'NITIN19'];
+    if (COUPONS_30ML_ONLY.includes(coupon.code)) {
       const has30ml = items?.some((item: any) =>
         item.slug === 'himtatwa-liquid-shilajit-30ml' ||
         item.name?.includes('30ml')
@@ -44,47 +45,19 @@ export async function POST(request: NextRequest) {
         });
       }
 
-      // Calculate discount only on 30ml item(s), not entire cart
-      const item30ml_y5 = items?.filter((item: any) =>
+      // Discount only on 30ml item(s), not entire cart
+      const items30ml = items?.filter((item: any) =>
         item.slug === 'himtatwa-liquid-shilajit-30ml' ||
         item.name?.includes('30ml')
       );
-      const eligible30mlTotal_y5 = item30ml_y5?.reduce(
+      const eligible30mlTotal = items30ml?.reduce(
         (sum: number, item: any) => sum + item.price * item.quantity,
         0
       ) ?? 0;
-      const discount_y5 = Math.round((eligible30mlTotal_y5 * coupon.discount_value) / 100);
+      const discount30ml = Math.round((eligible30mlTotal * coupon.discount_value) / 100);
       return NextResponse.json({
         valid: true,
-        discount: discount_y5,
-        message: `${coupon.discount_value}% discount applied on 30ml Shilajit!`,
-      });
-    }
-
-    // ── NITIN19: 19% off — only valid for 30ml product ──
-    if (coupon.code === 'NITIN19') {
-      const has30ml = items?.some((item: any) =>
-        item.slug === 'himtatwa-liquid-shilajit-30ml' || item.name?.includes('30ml')
-      );
-      if (!has30ml) {
-        return NextResponse.json({
-          valid: false,
-          message: 'This coupon is only valid for the 30ml Shilajit bottle',
-        });
-      }
-
-      // Calculate discount only on 30ml item(s)
-      const item30ml_n19 = items?.filter((item: any) =>
-        item.slug === 'himtatwa-liquid-shilajit-30ml' || item.name?.includes('30ml')
-      );
-      const eligible30mlTotal_n19 = item30ml_n19?.reduce(
-        (sum: number, item: any) => sum + item.price * item.quantity,
-        0
-      ) ?? 0;
-      const discount_n19 = Math.round((eligible30mlTotal_n19 * coupon.discount_value) / 100);
-      return NextResponse.json({
-        valid: true,
-        discount: discount_n19,
+        discount: discount30ml,
         message: `${coupon.discount_value}% discount applied on 30ml Shilajit!`,
       });
     }

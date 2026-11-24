@@ -135,7 +135,10 @@ insert into public.coupons (code, discount_type, discount_value, min_order_value
   ('ANURAG30', 'percentage', 30, 0, null, 1000, '2027-12-31'::timestamptz),
   ('YATEESH0030', 'percentage', 30, 0, null, 1000, '2027-12-31'::timestamptz),
   ('NITIN19', 'percentage', 19, 0, null, 1000, '2027-12-31'::timestamptz),
-  ('YATEESH0005', 'percentage', 25, 0, null, 1000, '2027-12-31'::timestamptz);
+  ('YATEESH0005', 'percentage', 25, 0, null, 1000, '2027-12-31'::timestamptz),
+  ('ROHIT25', 'percentage', 25, 0, null, 1000, '2027-12-31'::timestamptz),
+  ('TRIPTI25', 'percentage', 25, 0, null, 1000, '2027-12-31'::timestamptz),
+  ('SOMRAAJ27', 'percentage', 27, 0, null, 1000, '2027-12-31'::timestamptz);
 
 -- ═══════════════════════════════════════════
 -- ADDRESSES
